@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#define MAX 100000
 void changeToInfinity(int arrFW [10][10]);
 void implementFloydW(int arr [10][10], int arrFW [10][10]);
 void printM(int arrFW [10][10]);
@@ -46,7 +46,7 @@ void changeToInfinity(int arr[10][10])
         {
             if (arr[i][j] == 0 && i != j)
             {
-                arr[i][j] = 1000;
+                arr[i][j] = MAX;
             }   
         }    
     }
@@ -82,7 +82,7 @@ void implementFloydW(int arr[10][10],int arrFW[10][10])
 //the Floyd-Marshall algorithm
 void isPath (int arrFW[10][10] ,int i,int j)
 {
-    if (arrFW[i][j] != 1000 && arrFW[i][j] != 0)
+    if (arrFW[i][j] != MAX && arrFW[i][j] != 0)
     {
         printf("True\n");
         return;
@@ -94,7 +94,7 @@ void isPath (int arrFW[10][10] ,int i,int j)
 //prints -1 if there is no path , otherwise prints the weight of path from i to j
 void shortestPath(int arrFW [10][10] , int i, int j)
 {
-    if(arrFW[i][j] == 1000 || arrFW[i][j] == 0)
+    if(arrFW[i][j] == MAX|| arrFW[i][j] == 0)
     {
         printf("-1\n");
         return;
